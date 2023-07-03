@@ -1,7 +1,13 @@
 import React from 'react';
 
-const SelectedStory = ({story})=> {
+const SelectedStory = ({story, addToLikedStories})=> {
 
+    const handleClickLike = (event) => {
+        event.preventDefault()
+        addToLikedStories(story)
+
+
+    }
 
     if(!story){
         return null
@@ -11,6 +17,8 @@ const SelectedStory = ({story})=> {
         <>
         <a href={story.webUrl}>{story.webTitle}</a>
         <h1>Category: {story.sectionName} </h1>
+        <button type='button' onClick={handleClickLike}>Like</button>
+        <button type='button'>Dislike</button>
         </>
     )
 

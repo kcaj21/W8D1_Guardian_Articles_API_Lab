@@ -7,7 +7,7 @@ const NewsContainer = () => {
   
     const [stories, setStories] = useState([]);
     const [selectedStoryWebPublicationDate, setSelectedStory] = useState(null);
-    // const [likedStories, setlikedStories] = useState([]);
+    const [likedStories, setlikedStories] = useState([]);
     // const [dislikedStories, setdislikedStories] = useState([]);
 
 
@@ -21,8 +21,16 @@ const handleStorySelected = webPublicationDate  => {
   
 }
 
+
 const selectedStory = stories.find(story => story.webPublicationDate === selectedStoryWebPublicationDate
     )
+
+const addLikedStory = (selectedStory) => {
+    const newLikeList = [...likedStories, selectedStory]
+    const uniqueFavourites = [...new Set(newLikeList)]
+    setlikedStories(uniqueFavourites);
+}
+
 
 const getStories = function(){
     fetch('https://content.guardianapis.com/search?q=brexit&format=json&api-key=test')
@@ -34,7 +42,7 @@ const getStories = function(){
         <>
         <h1>This is a container</h1>
         <StorySelector stories={stories} onStorySelected={handleStorySelected}/>
-        <SelectedStory story={selectedStory}/>
+        <SelectedStory story={selectedStory} addToLikedStories={addLikedStory}/>
         </>
     )
 
