@@ -12,7 +12,7 @@ const LikedArticles = ({likedStories}) => {
     return (
 
     <div>
-        <h1>Liked Articles: </h1>
+        <h2>Liked Articles: </h2>
             <ul>
             {likedArticlesList}
             </ul>

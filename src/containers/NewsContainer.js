@@ -3,10 +3,11 @@ import StorySelector from '../components/StorySelector';
 import SelectedStory from '../components/SelectedStory';
 import LikedArticles from '../components/LikedArticles';
 import DislikedArticles from '../components/DislikedArticles';
+import '../containers/NewsContainer.css';
 
 
 const NewsContainer = () => {
-  
+
     const [stories, setStories] = useState([]);
     const [selectedStoryWebPublicationDate, setSelectedStory] = useState(null);
     const [likedStories, setlikedStories] = useState([]);
@@ -62,13 +63,21 @@ const getStories = function(){
 }
 
     return (
-        <>
-        <h1>This is a container</h1>
+        <div class='Newsbox'>
+        <div>
+        <h1>Today's News</h1>
         <StorySelector stories={stories} onStorySelected={handleStorySelected}/>
-        <SelectedStory story={selectedStory} addToLikedStories={addLikedStory} addToDislikedStories={addDislikedStory}/>
-        <LikedArticles likedStories={likedStories}/>
-        <DislikedArticles dislikedStories={dislikedStories}/>
-        </>
+        </div>
+            <div class='StorySelect'>
+            <SelectedStory story={selectedStory} addToLikedStories={addLikedStory} addToDislikedStories={addDislikedStory}/>
+            </div>
+            <div class='LikesAndDislikes'>
+
+            <LikedArticles likedStories={likedStories}/>
+            <DislikedArticles dislikedStories={dislikedStories}/>
+            </div>
+        </div>
+        
     )
 
 }

@@ -1,0 +1,32 @@
+.Newsbox {
+
+    display: flex;
+    justify-content: space-evenly;
+    margin: auto;
+}
+
+.StorySelect {
+
+    margin-block:  2%;
+    margin-left: 3%;
+
+}
+
+.LikesAndDislikes {
+
+    margin: auto;
+    
+}
+
+body {
+
+    background-color: rgb(217, 217, 217);
+}
+
+
+
+a {
+
+    font-size: x-large;
+
+}

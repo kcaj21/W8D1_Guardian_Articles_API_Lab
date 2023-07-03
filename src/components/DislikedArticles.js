@@ -12,7 +12,7 @@ const DislikedArticles = ({dislikedStories}) => {
     return (
 
     <div>
-        <h1>Disliked Articles: </h1>
+        <h3>Disliked Articles: </h3>
             <ul>
             {dislikedArticlesList}
             </ul>
