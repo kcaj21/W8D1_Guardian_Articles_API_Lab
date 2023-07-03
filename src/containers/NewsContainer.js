@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import StorySelector from '../components/StorySelector';
+import SelectedStory from '../components/SelectedStory'
 
 
 const NewsContainer = () => {
@@ -20,8 +21,8 @@ const handleStorySelected = webPublicationDate  => {
   
 }
 
-// const selectedStory = stories.find(story => story.webPublicationDate === selectedStoryWebPublicationDate
-//     )
+const selectedStory = stories.find(story => story.webPublicationDate === selectedStoryWebPublicationDate
+    )
 
 const getStories = function(){
     fetch('https://content.guardianapis.com/search?q=brexit&format=json&api-key=test')
@@ -33,6 +34,7 @@ const getStories = function(){
         <>
         <h1>This is a container</h1>
         <StorySelector stories={stories} onStorySelected={handleStorySelected}/>
+        <SelectedStory story={selectedStory}/>
         </>
     )
 
