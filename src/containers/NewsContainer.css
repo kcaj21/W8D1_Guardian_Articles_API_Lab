@@ -1,9 +1,20 @@
 .Newsbox {
 
-    display: flex;
+    display: grid;
     justify-content: space-evenly;
     margin: auto;
 }
+
+h1 {
+
+    text-align: center;
+}
+
+li {
+    list-style: none;
+}
+
+
 
 .StorySelect {
 
@@ -11,6 +22,8 @@
     margin-left: 3%;
 
 }
+
+
 
 .LikesAndDislikes {
 
@@ -55,4 +68,17 @@ a {
 
     transition-delay: 2ms;
     background-color: rgb(173, 89, 89);
+}
+
+.Selector {
+
+    padding: 10px;
+    background-color: none;
+    margin: 5px;
+}
+
+.Selector:hover {
+
+    background-color: rgb(217, 217, 217);
+    
 }

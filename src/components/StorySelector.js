@@ -16,7 +16,7 @@ const StorySelector = ({stories, onStorySelected}) => {
 
     return (
         <div>
-            <select onChange={handleChange}>
+            <select class='Selector' onChange={handleChange}>
             {storiesList}
         
             </select>
