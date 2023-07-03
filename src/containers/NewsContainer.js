@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import StorySelector from '../components/StorySelector';
-import SelectedStory from '../components/SelectedStory'
+import SelectedStory from '../components/SelectedStory';
+import LikedArticles from '../components/LikedArticles';
+import DislikedArticles from '../components/DislikedArticles';
 
 
 const NewsContainer = () => {
@@ -8,7 +10,7 @@ const NewsContainer = () => {
     const [stories, setStories] = useState([]);
     const [selectedStoryWebPublicationDate, setSelectedStory] = useState(null);
     const [likedStories, setlikedStories] = useState([]);
-    // const [dislikedStories, setdislikedStories] = useState([]);
+    const [dislikedStories, setdislikedStories] = useState([]);
 
 
 
@@ -18,17 +20,22 @@ useEffect(() => {
 
 const handleStorySelected = webPublicationDate  => {
     setSelectedStory(webPublicationDate)
-  
 }
 
 
-const selectedStory = stories.find(story => story.webPublicationDate === selectedStoryWebPublicationDate
-    )
+const selectedStory = stories.find(story => story.webPublicationDate === selectedStoryWebPublicationDate)
 
 const addLikedStory = (selectedStory) => {
     const newLikeList = [...likedStories, selectedStory]
-    const uniqueFavourites = [...new Set(newLikeList)]
-    setlikedStories(uniqueFavourites);
+    const uniqueLikes = [...new Set(newLikeList)]
+    setlikedStories(uniqueLikes)
+
+}
+
+const addDislikedStory = (selectedStory) => {
+    const newDislikeList = [...dislikedStories, selectedStory]
+    const uniqueDislikes = [...new Set(newDislikeList)]
+    setdislikedStories(uniqueDislikes);
 }
 
 
@@ -42,7 +49,9 @@ const getStories = function(){
         <>
         <h1>This is a container</h1>
         <StorySelector stories={stories} onStorySelected={handleStorySelected}/>
-        <SelectedStory story={selectedStory} addToLikedStories={addLikedStory}/>
+        <SelectedStory story={selectedStory} addToLikedStories={addLikedStory} addToDislikedStories={addDislikedStory}/>
+        <LikedArticles likedStories={likedStories}/>
+        <DislikedArticles dislikedStories={dislikedStories}/>
         </>
     )
 
