@@ -25,8 +25,8 @@ const SelectedStory = ({story, addToLikedStories, addToDislikedStories})=> {
         <>
         <a href={story.webUrl}>{story.webTitle}</a>
         <h4>Category: {story.sectionName} </h4>
-        <button type='button' onClick={handleClickLike}>Like</button>
-        <button type='button' onClick={handleClickDislike}>Dislike</button>
+        <button class='LikeButton' type='button' onClick={handleClickLike}>Like</button>
+        <button class='DislikeButton' type='button' onClick={handleClickDislike}>Dislike</button>
         </>
     )
 

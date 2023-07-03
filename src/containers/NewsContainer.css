@@ -30,3 +30,29 @@ a {
     font-size: x-large;
 
 }
+
+.LikeButton {
+
+    color: none
+
+}
+
+
+.LikeButton:hover {
+
+    transition-delay: 2ms;
+    background-color: rgb(68, 194, 68);
+}
+
+.DislikeButton {
+
+    color: none
+
+}
+
+
+.DislikeButton:hover {
+
+    transition-delay: 2ms;
+    background-color: rgb(173, 89, 89);
+}
