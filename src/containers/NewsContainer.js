@@ -29,14 +29,30 @@ const addLikedStory = (selectedStory) => {
     const newLikeList = [...likedStories, selectedStory]
     const uniqueLikes = [...new Set(newLikeList)]
     setlikedStories(uniqueLikes)
+    const newDislikeList = [...dislikedStories]
+    if (newDislikeList.includes(selectedStory)) {
 
-}
+    const filteredList = newDislikeList.filter((story) => {
+       return story.webTitle !== selectedStory.webTitle
+    })
+    setdislikedStories(filteredList);
+    }
+};
 
 const addDislikedStory = (selectedStory) => {
     const newDislikeList = [...dislikedStories, selectedStory]
     const uniqueDislikes = [...new Set(newDislikeList)]
-    setdislikedStories(uniqueDislikes);
-}
+    setdislikedStories(uniqueDislikes)
+    const newLikeList = [...likedStories]
+
+    if (newLikeList.includes(selectedStory)) {
+
+        const filteredList = newLikeList.filter((story) => {
+           return story.webTitle !== selectedStory.webTitle
+        })
+        setlikedStories(filteredList);
+        }
+};
 
 
 const getStories = function(){

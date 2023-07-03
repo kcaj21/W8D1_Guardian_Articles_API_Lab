@@ -16,10 +16,3 @@ export default CurrentStory
 
 
 
-// const newDislikeList = [...dislikedStories]
-// if (newDislikeList.includes(selectedStory)) {
-
-// newDislikeList.remove(selectedStory) 
-// }
-
-// setdislikedStories(newDislikeList);
