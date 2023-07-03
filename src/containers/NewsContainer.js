@@ -5,7 +5,7 @@ import StorySelector from '../components/StorySelector';
 const NewsContainer = () => {
   
     const [stories, setStories] = useState([]);
-    const [selectedStory, setSelectedStory] = useState(null);
+    const [selectedStoryWebPublicationDate, setSelectedStory] = useState(null);
     // const [likedStories, setlikedStories] = useState([]);
     // const [dislikedStories, setdislikedStories] = useState([]);
 
@@ -20,10 +20,13 @@ const handleStorySelected = webPublicationDate  => {
   
 }
 
+// const selectedStory = stories.find(story => story.webPublicationDate === selectedStoryWebPublicationDate
+//     )
+
 const getStories = function(){
     fetch('https://content.guardianapis.com/search?q=brexit&format=json&api-key=test')
     .then(response => response.json())
-    .then(stories => setStories(stories))
+    .then(stories => setStories(stories.response.results))
 }
 
     return (
